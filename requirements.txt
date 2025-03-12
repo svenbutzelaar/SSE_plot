@@ -1,0 +1,15 @@
+matplotlib
+seaborn
+plotly
+bokeh
+altair
+plotnine
+pygal
+holoviews
+vispy
+mpld3
+pandas
+numpy
+IPython
+lxml
+PyQt6

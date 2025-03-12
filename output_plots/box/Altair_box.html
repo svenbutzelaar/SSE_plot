@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-9e2d228b793e9211165c8a92d907477b"}, "mark": {"type": "boxplot"}, "encoding": {"x": {"field": "x", "type": "nominal"}, "y": {"field": "y", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-9e2d228b793e9211165c8a92d907477b": [{"x": "Group 3", "y": -0.2790354811014041}, {"x": "Group 1", "y": 0.17634082468553586}, {"x": "Group 3", "y": 0.10210060914326662}, {"x": "Group 3", "y": -1.5644487091458326}, {"x": "Group 1", "y": 0.7867981848709539}, {"x": "Group 2", "y": -1.7897927071123823}, {"x": "Group 3", "y": -0.5477212253087503}, {"x": "Group 1", "y": 0.004792676548139943}, {"x": "Group 1", "y": 0.11916663079209336}, {"x": "Group 1", "y": 0.6782039079939757}, {"x": "Group 1", "y": 1.5708096072208595}, {"x": "Group 1", "y": -2.742085547916028}, {"x": "Group 3", "y": 0.06849562005959961}, {"x": "Group 3", "y": -0.8342311230125123}, {"x": "Group 3", "y": -0.32058028551237966}, {"x": "Group 2", "y": -1.262045076787481}, {"x": "Group 3", "y": 0.36388996294756365}, {"x": "Group 1", "y": -1.548464532248535}, {"x": "Group 3", "y": 0.4029704326092497}, {"x": "Group 1", "y": 0.34885254232808216}, {"x": "Group 3", "y": 1.9423302207682176}, {"x": "Group 2", "y": -0.260041284848568}, {"x": "Group 2", "y": -0.9914467454963044}, {"x": "Group 1", "y": -0.14387453146732623}, {"x": "Group 2", "y": 1.049775889855036}, {"x": "Group 2", "y": 0.4705093394328882}, {"x": "Group 2", "y": -0.9547763607960246}, {"x": "Group 1", "y": -1.685435553864538}, {"x": "Group 2", "y": 1.5339197620457787}, {"x": "Group 2", "y": 1.9271968945339266}, {"x": "Group 2", "y": -0.5889772141022709}, {"x": "Group 3", "y": -0.16395697159610204}, {"x": "Group 3", "y": 1.0585362347276468}, {"x": "Group 3", "y": -0.8749605389200776}, {"x": "Group 1", "y": 0.8853244537215762}, {"x": "Group 1", "y": -0.9468461579541739}, {"x": "Group 1", "y": 0.06963079842905952}, {"x": "Group 1", "y": -0.4458196272368731}, {"x": "Group 3", "y": -0.009064622854373055}, {"x": "Group 1", "y": -0.4289625969838249}, {"x": "Group 2", "y": 0.29031661464941505}, {"x": "Group 2", "y": 1.1925622513151792}, {"x": "Group 1", "y": -1.9477386651286517}, {"x": "Group 2", "y": 0.754343770327665}, {"x": "Group 1", "y": 0.7189476506760005}, {"x": "Group 2", "y": 0.1745779476428256}, {"x": "Group 1", "y": 0.8646777386992092}, {"x": "Group 1", "y": 2.195671104482473}, {"x": "Group 1", "y": 1.008296112743064}, {"x": "Group 3", "y": -0.24707904511189427}, {"x": "Group 3", "y": -0.5406469492024258}, {"x": "Group 2", "y": 0.6443273866128946}, {"x": "Group 1", "y": 0.27531241104617743}, {"x": "Group 2", "y": -0.9536088048639189}, {"x": "Group 3", "y": 0.07731425187427042}, {"x": "Group 3", "y": -0.2927608580993541}, {"x": "Group 3", "y": 0.6965291510553292}, {"x": "Group 1", "y": -0.8173879531748502}, {"x": "Group 3", "y": 1.0957045920713973}, {"x": "Group 3", "y": -1.9367056080362663}, {"x": "Group 3", "y": 2.211477698426218}, {"x": "Group 2", "y": -0.2551926936765008}, {"x": "Group 3", "y": -1.1915066107099577}, {"x": "Group 2", "y": -0.0068615936439855646}, {"x": "Group 3", "y": 0.5683005060620598}, {"x": "Group 2", "y": -0.5229540774783938}, {"x": "Group 3", "y": -0.18918494650678877}, {"x": "Group 3", "y": 0.7085969767693846}, {"x": "Group 1", "y": 0.8765239563421078}, {"x": "Group 3", "y": 0.4830552956397964}, {"x": "Group 1", "y": -0.15698406942143509}, {"x": "Group 1", "y": 0.529986651557612}, {"x": "Group 3", "y": 0.30215037126438477}, {"x": "Group 2", "y": 0.33341822476778094}, {"x": "Group 1", "y": -2.5760034328714903}, {"x": "Group 1", "y": 0.6942417022284213}, {"x": "Group 2", "y": -1.1250538747355259}, {"x": "Group 1", "y": 0.8001881169763324}, {"x": "Group 2", "y": -0.3186369675113667}, {"x": "Group 1", "y": -0.48641601855313876}, {"x": "Group 1", "y": 0.6483068626666336}, {"x": "Group 3", "y": -0.0910208785587249}, {"x": "Group 3", "y": 0.6147743159822686}, {"x": "Group 1", "y": -0.9534037100810824}, {"x": "Group 1", "y": 0.3564188889510086}, {"x": "Group 1", "y": 1.5286078651266788}, {"x": "Group 2", "y": 0.49090614063070215}, {"x": "Group 2", "y": 0.37842025083276115}, {"x": "Group 1", "y": 1.2565119838335848}, {"x": "Group 2", "y": 0.19668023597188802}, {"x": "Group 1", "y": -1.1125304079389613}, {"x": "Group 1", "y": -1.2236761513825372}, {"x": "Group 3", "y": -0.6237817660832939}, {"x": "Group 2", "y": 0.013356019278166535}, {"x": "Group 3", "y": -0.3679448751363785}, {"x": "Group 2", "y": -1.1546310721876851}, {"x": "Group 2", "y": -0.17013063586012697}, {"x": "Group 2", "y": -1.1147515331623101}, {"x": "Group 1", "y": -0.3480574785336678}, {"x": "Group 3", "y": -0.23057806897673033}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
