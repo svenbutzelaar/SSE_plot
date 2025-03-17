@@ -1,32 +1,30 @@
 from BasePlotter import BasePlotter
-from BasePlotter import FileExtension
-
-
 import plotly.express as px
-
 
 class PlotlyPlotter(BasePlotter):
     def line(self, df):
         fig = px.line(df, x="x", y="y")
-        fig_content = fig.to_html(full_html=False).encode('utf-8')
-        return fig_content, FileExtension.HTML  # Return HTML binary content and extension
+        return fig
 
     def scatter_plot(self, df):
         fig = px.scatter(df, x="x", y="y", color="z")
-        fig_content = fig.to_html(full_html=False).encode('utf-8')
-        return fig_content, FileExtension.HTML
+        return fig
 
     def bar_plot(self, df):
         fig = px.bar(df, x="x", y="y")
-        fig_content = fig.to_html(full_html=False).encode('utf-8')
-        return fig_content, FileExtension.HTML
+        return fig
 
     def box_plot(self, df):
         fig = px.box(df, x="x", y="y")
-        fig_content = fig.to_html(full_html=False).encode('utf-8')
-        return fig_content, FileExtension.HTML
+        return fig
 
     def heatmap(self, df):
         fig = px.imshow(df, text_auto=True)
-        fig_content = fig.to_html(full_html=False).encode('utf-8')
-        return fig_content, FileExtension.HTML
+        return fig
+
+    def render_plot(self, fig):
+        # Convert the Plotly figure to a PNG image
+        img_bytes = fig.to_image(format="png")
+
+        # Return the binary content of the PNG image
+        return img_bytes

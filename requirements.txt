@@ -17,3 +17,5 @@ altair_saver
 selenium 
 pillow
 vl-convert-python
+kaleido
+cairosvg

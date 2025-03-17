@@ -1,7 +1,8 @@
+from abc import ABC, abstractmethod
 from enum import Enum
 
 
-class BasePlotter:
+class BasePlotter(ABC):
     def plot(self, plot_type, df):
         """
         Main entry point for plotting functionality.
@@ -32,31 +33,33 @@ class BasePlotter:
             f.write(content)
         print(f"Plot saved as: {file_path}")
 
+    @abstractmethod
     def render_plot(self, chart):
         """ Returns the rendered plot as binary content and its extension. """
-        return chart
+        raise NotImplementedError
 
-
+    @abstractmethod
     def line(self, df):
         raise NotImplementedError
 
+    @abstractmethod
     def scatter_plot(self, df):
         raise NotImplementedError
 
+    @abstractmethod
     def bar_plot(self, df):
         raise NotImplementedError
 
+    @abstractmethod
     def box_plot(self, df):
         raise NotImplementedError
 
+    @abstractmethod
     def heatmap(self, df):
         raise NotImplementedError
 
-
-# Enum for file extensions
-class FileExtension(Enum):
-    PNG = ".png"
-    HTML = ".html"
+    def close_all(self):
+        ...
 
 
 class PlotType(Enum):

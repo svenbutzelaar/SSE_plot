@@ -1,5 +1,4 @@
 from BasePlotter import BasePlotter
-from BasePlotter import FileExtension
 
 
 import altair as alt
@@ -13,18 +12,15 @@ import io
 class AltairPlotter(BasePlotter):
     def line(self, df):
         chart = alt.Chart(df).mark_line().encode(x='x', y='y')
-        html_content = chart.to_html()
-        return html_content.encode('utf-8'), FileExtension.HTML
+        return chart
 
     def scatter_plot(self, df):
         chart = alt.Chart(df).mark_point().encode(x='x', y='y', color='z')
-        html_content = chart.to_html()
-        return html_content.encode('utf-8'), FileExtension.HTML
+        return chart
 
     def bar_plot(self, df):
         chart = alt.Chart(df).mark_bar().encode(x='x', y='y')
-        html_content = chart.to_html()
-        return html_content.encode('utf-8'), FileExtension.HTML
+        return chart
 
     def box_plot(self, df):
         chart = alt.Chart(df).mark_boxplot().encode(x='x', y='y')
@@ -33,8 +29,7 @@ class AltairPlotter(BasePlotter):
     def heatmap(self, df):
         chart = alt.Chart(df).mark_rect().encode(
             x='x:O', y='y:O', color='z:Q')
-        html_content = chart.to_html()
-        return html_content.encode('utf-8'), FileExtension.HTML
+        return chart
 
     def render_plot(self, chart):
 

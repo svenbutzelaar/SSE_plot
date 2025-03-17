@@ -20,7 +20,9 @@ def main():
             if not os.path.exists(subfolder_path):
                 os.makedirs(subfolder_path)
 
-    libraries = ["matplotlib", "seaborn", "plotly", "bokeh", "altair", "plotnine", "pygal", "holoviews", "vispy", "mpld3"]
+    # ["matplotlib", "seaborn", "plotly", "bokeh", "altair", "plotnine", "pygal", "holoviews", "vispy"]
+    libraries = PlotFactory.get_plotters_list()
+    # libraries = ["pygal"]
 
     data_frames = {
         "line": data.get_df_line(),
@@ -38,6 +40,7 @@ def main():
             plot_binary = plotter.render_plot(plot)
             plotter_name = lib.capitalize()
             plotter.save_plot(plot_binary, f"{output_dir}/{plot_type}/{plotter_name}_{plot_type}.png")
+        plotter.close_all()
 
 
 # Running the factory
