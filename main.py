@@ -8,7 +8,7 @@ import os
 
 def main():
         # Global setting for saving plots
-    save_plots = True  # Change to False to stop saving plots
+    save_plots = False  # Change to False to stop saving plots
     output_dir = "output_plots"  # Directory to save the plots when debugging
 
     # Ensure output directory exists
@@ -39,7 +39,8 @@ def main():
             plot = plotter.plot(plot_type, df)
             plot_binary = plotter.render_plot(plot)
             plotter_name = lib.capitalize()
-            plotter.save_plot(plot_binary, f"{output_dir}/{plot_type}/{plotter_name}_{plot_type}.png")
+            if save_plots:
+                plotter.save_plot(plot_binary, f"{output_dir}/{plot_type}/{plotter_name}_{plot_type}.png")
         plotter.close_all()
 
 
