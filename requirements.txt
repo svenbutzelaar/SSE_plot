@@ -13,3 +13,7 @@ numpy
 IPython
 lxml
 PyQt6
+altair_saver
+selenium 
+pillow
+vl-convert-python
