@@ -19,3 +19,5 @@ pillow
 vl-convert-python
 kaleido
 cairosvg
+dotenv
+python-dotenv
