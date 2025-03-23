@@ -3,3 +3,4 @@ venv
 output_plots
 .idea
 .env
+results
