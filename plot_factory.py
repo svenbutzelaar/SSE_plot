@@ -17,7 +17,7 @@ class PlotFactory:
             "matplotlib": MatplotlibPlotter,
             "seaborn": SeabornPlotter,
             "plotly": PlotlyPlotter,
-            "bokeh": BokehPlotter,
+            #"bokeh": BokehPlotter,
             "altair": AltairPlotter,
             "plotnine": PlotninePlotter,
             "pygal": PygalPlotter,
@@ -27,4 +27,4 @@ class PlotFactory:
     
     @staticmethod
     def get_plotters_list() -> List[str]:
-        return ["matplotlib", "seaborn", "plotly", "bokeh", "altair", "plotnine", "pygal", "holoviews"]
+        return ["matplotlib", "seaborn", "plotly", "altair", "plotnine", "pygal", "holoviews"]

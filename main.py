@@ -20,7 +20,7 @@ def main():
             if not os.path.exists(subfolder_path):
                 os.makedirs(subfolder_path)
 
-    # ["matplotlib", "seaborn", "plotly", "bokeh", "altair", "plotnine", "pygal", "holoviews", "vispy"]
+    # ["matplotlib", "seaborn", "plotly", "altair", "plotnine", "pygal", "holoviews", "vispy"]
     libraries = PlotFactory.get_plotters_list()
     # libraries = ["pygal"]
 
