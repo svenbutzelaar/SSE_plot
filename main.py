@@ -1,13 +1,18 @@
 from BasePlotter import PlotType
-import data
+from energibridge_manager import EnergiBridgeManager
 from plot_factory import PlotFactory
-
-
+import matplotlib.pyplot as plt
+import random
+import time
+import data
 import os
 
 
 def main():
-        # Global setting for saving plots
+    # number of iterations of the experiment
+    num_iterations = 30
+
+    # Global setting for saving plots
     save_plots = False  # Change to False to stop saving plots
     output_dir = "output_plots"  # Directory to save the plots when debugging
 
@@ -24,6 +29,10 @@ def main():
     libraries = PlotFactory.get_plotters_list()
     # libraries = ["pygal"]
 
+    # Create a random shuffle for the usage of the different libraries
+    test_queue = libraries * num_iterations
+    random.shuffle(test_queue)
+
     data_frames = {
         "line": data.get_df_line(),
         "bar": data.get_df_bar(),
@@ -32,16 +41,30 @@ def main():
         "heatmap": data.get_df_heatmap(),
     }
 
-    for lib in libraries:
-        print(f"Testing {lib}...")
+    energibridge = EnergiBridgeManager()
+    energibridge.setup_service()
+
+    for i, lib in enumerate(test_queue):
+
+        print(f"Iteration {i + 1}/{len(test_queue)}: Testing {lib}...")
         plotter = PlotFactory.get_plotter(lib)
+
+        iteration_name = f"Iteration_{i + 1}_{lib}.csv"
+        energibridge.start(iteration_name)
+
         for plot_type, df in data_frames.items():
             plot = plotter.plot(plot_type, df)
-            plot_binary = plotter.render_plot(plot)
-            plotter_name = lib.capitalize()
+
             if save_plots:
+                plot_binary = plotter.render_plot(plot)
+                plotter_name = lib.capitalize()
                 plotter.save_plot(plot_binary, f"{output_dir}/{plot_type}/{plotter_name}_{plot_type}.png")
+
         plotter.close_all()
+        plt.close("all")
+
+        energibridge.stop()
+        time.sleep(2)
 
 
 # Running the factory
