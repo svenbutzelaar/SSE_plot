@@ -59,6 +59,9 @@ class EnergiBridgeManager:
             creationflags=subprocess.CREATE_NEW_PROCESS_GROUP
         )
 
+        # Waiting for EnergiBridge to start
+        time.sleep(1)
+
 
     def stop(self):
         if not self.process:
