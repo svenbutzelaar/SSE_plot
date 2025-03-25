@@ -13,7 +13,7 @@ def main():
     num_experiments = 30
 
     # Global setting for saving plots
-    save_plots = True # Change to False to stop saving plots
+    save_plots = False # Change to False to stop saving plots
     output_dir = "output_plots" # Directory to save the plots when debugging
 
     # Ensure output directory exists
@@ -41,7 +41,7 @@ def main():
     energibridge.setup_service()
 
     for experiment in range(1, num_experiments + 1):
-        print(f"Starting iteration {experiment}/{num_experiments}...")
+        print(f"Starting experiment {experiment}/{num_experiments}...")
 
         # Shuffle libraries for each iteration to ensure random order
         random.shuffle(libraries)
@@ -68,7 +68,13 @@ def main():
             plt.close("all")
 
         # Wait for 60 seconds between test runs
+        print("Starting pause ...")
+        output_file_name = f"Pause_{experiment}.csv"
+        energibridge.start(output_file_name)
         time.sleep(60)
+        energibridge.stop()
+
+        print(f"Finished experiment {experiment}/{num_experiments}...")
 
 # Running the factory
 if __name__ == "__main__":
