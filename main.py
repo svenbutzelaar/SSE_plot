@@ -1,7 +1,9 @@
+from datetime import datetime
 from BasePlotter import PlotType
 from energibridge_manager import EnergiBridgeManager
 from plot_factory import PlotFactory
 import matplotlib.pyplot as plt
+import logging
 import random
 import time
 import data
@@ -25,6 +27,8 @@ def main():
             if not os.path.exists(subfolder_path):
                 os.makedirs(subfolder_path)
 
+    logging.basicConfig(filename="log.txt", level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
     # ["matplotlib", "seaborn", "plotly", "plotnine", "pygal", "holoviews"]
     libraries = PlotFactory.get_plotters_list()
     # libraries = ["pygal"]
@@ -40,14 +44,23 @@ def main():
     energibridge = EnergiBridgeManager()
     energibridge.setup_service()
 
+    current_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    msg = f"Starting measurements at {current_time}."
+    print(msg)
+    logging.info(msg)
+
     for experiment in range(1, num_experiments + 1):
-        print(f"Starting experiment {experiment}/{num_experiments}...")
+        msg = f"# Starting experiment {experiment}/{num_experiments}..."
+        print(msg)
+        logging.info(msg)
 
         # Shuffle libraries for each iteration to ensure random order
         random.shuffle(libraries)
-
         for i, lib in enumerate(libraries):
-            print(f"Experiment {experiment}, Test {i + 1}/{len(libraries)}: Testing {lib}...")
+            msg = f"Experiment {experiment}, Test {i + 1}/{len(libraries)}: Testing {lib}..."
+            print(msg)
+            logging.info(msg)
+
             plotter = PlotFactory.get_plotter(lib)
 
             iteration_name = f"Experiment_{experiment}_{i + 1}_{lib}.csv"
@@ -68,13 +81,23 @@ def main():
             plt.close("all")
 
         # Wait for 60 seconds between test runs
-        print("Starting pause ...")
+        msg = "# Starting Pause..."
+        print(msg)
+        logging.info(msg)
+
         output_file_name = f"Pause_{experiment}.csv"
         energibridge.start(output_file_name)
         time.sleep(60)
         energibridge.stop()
 
-        print(f"Finished experiment {experiment}/{num_experiments}...")
+        msg = f"# Finished experiment {experiment}/{num_experiments}..."
+        print(msg)
+        logging.info(msg)
+
+    current_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    msg = f"Finishing measurements at {current_time}."
+    print(msg)
+    logging.info(msg)
 
 # Running the factory
 if __name__ == "__main__":

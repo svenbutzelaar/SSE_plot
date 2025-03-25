@@ -4,3 +4,4 @@ output_plots
 .idea
 .env
 results
+log.txt
