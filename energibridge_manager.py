@@ -46,6 +46,7 @@ class EnergiBridgeManager:
 
     def start(self, output_file_name, timeout_in_seconds=9999):
         print("Starting EnergiBridge...")
+
         command = [
             self.energibridge_path,
             "-o", os.path.join(self.csv_output_dir, output_file_name),
@@ -54,8 +55,9 @@ class EnergiBridgeManager:
 
         self.process = subprocess.Popen(
             command,
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
             creationflags=subprocess.CREATE_NEW_PROCESS_GROUP
         )
 
@@ -63,7 +65,8 @@ class EnergiBridgeManager:
         time.sleep(1)
 
 
-    def stop(self):
+
+    def stop(self, print_output=False):
         if not self.process:
             print("No running EnergiBridge process found.")
             return
@@ -75,6 +78,14 @@ class EnergiBridgeManager:
             time.sleep(2)
         except Exception as e:
             print(f"Error sending CTRL_C_EVENT: {e}")
+
+        if print_output:
+            stdout, stderr = self.process.communicate()
+            if stdout:
+                print(f"Last line of output: {stdout}")
+
+            if stderr:
+                print(f"Error output: {stderr}")
 
         # check if process is still running
         if self.process.poll() is None:
