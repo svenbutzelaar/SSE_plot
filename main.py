@@ -10,11 +10,11 @@ import os
 
 def main():
     # number of iterations of the experiment
-    num_iterations = 30
+    num_experiments = 30
 
     # Global setting for saving plots
-    save_plots = False  # Change to False to stop saving plots
-    output_dir = "output_plots"  # Directory to save the plots when debugging
+    save_plots = True # Change to False to stop saving plots
+    output_dir = "output_plots" # Directory to save the plots when debugging
 
     # Ensure output directory exists
     if save_plots:
@@ -25,13 +25,9 @@ def main():
             if not os.path.exists(subfolder_path):
                 os.makedirs(subfolder_path)
 
-    # ["matplotlib", "seaborn", "plotly", "altair", "plotnine", "pygal", "holoviews", "vispy"]
+    # ["matplotlib", "seaborn", "plotly", "plotnine", "pygal", "holoviews"]
     libraries = PlotFactory.get_plotters_list()
     # libraries = ["pygal"]
-
-    # Create a random shuffle for the usage of the different libraries
-    test_queue = libraries * num_iterations
-    random.shuffle(test_queue)
 
     data_frames = {
         "line": data.get_df_line(),
@@ -44,28 +40,35 @@ def main():
     energibridge = EnergiBridgeManager()
     energibridge.setup_service()
 
-    for i, lib in enumerate(test_queue):
+    for experiment in range(1, num_experiments + 1):
+        print(f"Starting iteration {experiment}/{num_experiments}...")
 
-        print(f"Iteration {i + 1}/{len(test_queue)}: Testing {lib}...")
-        plotter = PlotFactory.get_plotter(lib)
+        # Shuffle libraries for each iteration to ensure random order
+        random.shuffle(libraries)
 
-        iteration_name = f"Iteration_{i + 1}_{lib}.csv"
-        energibridge.start(iteration_name)
+        for i, lib in enumerate(libraries):
+            print(f"Experiment {experiment}, Test {i + 1}/{len(libraries)}: Testing {lib}...")
+            plotter = PlotFactory.get_plotter(lib)
 
-        for plot_type, df in data_frames.items():
-            plot = plotter.plot(plot_type, df)
+            iteration_name = f"Experiment_{experiment}_{i + 1}_{lib}.csv"
+            energibridge.start(iteration_name)
 
-            if save_plots:
+            for plot_type, df in data_frames.items():
+                print(f"Plotting {plot_type}...")
+                plot = plotter.plot(plot_type, df)
                 plot_binary = plotter.render_plot(plot)
-                plotter_name = lib.capitalize()
-                plotter.save_plot(plot_binary, f"{output_dir}/{plot_type}/{plotter_name}_{plot_type}.png")
 
-        plotter.close_all()
-        plt.close("all")
+                if save_plots:
+                    plotter_name = lib.capitalize()
+                    plotter.save_plot(plot_binary, f"{output_dir}/{plot_type}/{plotter_name}_{plot_type}.png")
 
-        energibridge.stop()
-        time.sleep(2)
+            energibridge.stop()
 
+            plotter.close_all()
+            plt.close("all")
+
+        # Wait for 60 seconds between test runs
+        time.sleep(60)
 
 # Running the factory
 if __name__ == "__main__":
