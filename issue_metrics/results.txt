@@ -1,0 +1,82 @@
+Repo: has2k1/plotnine
+  - Avg. Time to Close Issues: 2109.99 hours
+  - Avg. Time to Close Pull Requests: 1467.59 hours
+  - Avg. Total Closure Time (Issues + PRs): 1987.12 hours
+  - Avg. First Response Time (Closed issues only): 196.32 hours
+  - Avg. First Response Time (Open issues only): 692.49 hours
+  - Avg. First Response Time (Open and closed issues): 252.25 hours
+  - No responses closed: 13272
+  - No responses open: 1680
+  - Avg. First Response Time (Open, closed and not responded issues): 220.63866001564944
+------------------------------------------------------------
+
+Repo: Kozea/pygal
+  - Avg. Time to Close Issues: 1920.80 hours
+  - Avg. Time to Close Pull Requests: 1950.99 hours
+  - Avg. Total Closure Time (Issues + PRs): 1930.81 hours
+  - Avg. First Response Time (Closed issues only): 820.33 hours
+  - Avg. First Response Time (Open issues only): 6791.71 hours
+  - Avg. First Response Time (Open and closed issues): 2628.57 hours
+  - No responses closed: 8400
+  - No responses open: 15456
+  - Avg. First Response Time (Open, closed and not responded issues): 1752.3945089984352
+
+Repo: matplotlib/matplotlib
+  - Avg. Time to Close Issues: 7648.08 hours
+  - Avg. Time to Close Pull Requests: 1052.85 hours
+  - Avg. Total Closure Time (Issues + PRs): 3286.59 hours
+  - Avg. First Response Time (Closed issues only): 1044.23 hours
+  - Avg. First Response Time (Open issues only): 2442.40 hours
+  - Avg. First Response Time (Open and closed issues): 1199.57 hours
+  - No responses closed: 77616
+  - No responses open: 18984
+  - Avg. First Response Time (Open, closed and not responded issues): 1135.5458498870632
+------------------------------------------------------------
+
+Repo: mwaskom/seaborn
+  - Avg. Time to Close Issues: 1779.17 hours
+  - Avg. Time to Close Pull Requests: 1082.97 hours
+  - Avg. Total Closure Time (Issues + PRs): 1561.41 hours
+  - Avg. First Response Time (Closed issues only): 362.37 hours
+  - Avg. First Response Time (Open issues only): 1590.12 hours
+  - Avg. First Response Time (Open and closed issues): 425.73 hours
+  - No responses closed: 29064
+  - No responses open: 4200
+  - Avg. First Response Time (Open, closed and not responded issues): 393.3223385236447
+------------------------------------------------------------
+
+Repo: plotly/plotly.py
+  - Avg. Time to Close Issues: 15005.96 hours
+  - Avg. Time to Close Pull Requests: 1409.37 hours
+  - Avg. Total Closure Time (Issues + PRs): 9363.22 hours
+  - Avg. First Response Time (Closed issues only): 6369.36 hours
+  - Avg. First Response Time (Open issues only): 3726.09 hours
+  - Avg. First Response Time (Open and closed issues): 6011.02 hours
+  - No responses closed: 27048
+  - No responses open: 37800
+  - Avg. First Response Time (Open, closed and not responded issues): 5269.729452964146
+------------------------------------------------------------
+
+Repo: vega/altair
+  - Avg. Time to Close Issues: 5080.56 hours
+  - Avg. Time to Close Pull Requests: 519.56 hours
+  - Avg. Total Closure Time (Issues + PRs): 3055.77 hours
+  - Avg. First Response Time (Closed issues only): 682.32 hours
+  - Avg. First Response Time (Open issues only): 1861.42 hours
+  - Avg. First Response Time (Open and closed issues): 743.61 hours
+  - No responses closed: 17136
+  - No responses open: 5880
+  - Avg. First Response Time (Open, closed and not responded issues): 694.6381483707265
+------------------------------------------------------------
+
+Repo: holoviz/holoviews
+  - Avg. Time to Close Issues: 4635.09 hours
+  - Avg. Time to Close Pull Requests: 397.44 hours
+  - Avg. Total Closure Time (Issues + PRs): 2189.84 hours
+  - Avg. First Response Time (Closed issues only): 5359.06 hours
+  - Avg. First Response Time (Open issues only): 1809.14 hours
+  - Avg. First Response Time (Open and closed issues): 4536.73 hours
+  - No responses closed: 1008
+  - No responses open: 59472
+  - Avg. First Response Time (Open, closed and not responded issues): 4048.1878720876125
+------------------------------------------------------------

@@ -21,3 +21,4 @@ kaleido
 cairosvg
 dotenv
 python-dotenv
+pygithub
