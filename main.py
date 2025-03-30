@@ -9,6 +9,30 @@ import time
 import data
 import os
 
+# Simple implementation of the fibonacci sequence used for warm up
+def fibonacci(n):
+  if n <= 1:
+    return n
+  else:
+    return fibonacci(n-1) + fibonacci(n-2)
+
+# Do some warm up before actually running the experiment
+# The warm-up is done by running a CPU intensive task (fibonacci)
+def warm_up():
+  print("Start warm up")
+  # Warm up for 5 minutes
+  warm_up_time = 300
+  start_time = time.time()
+
+  i = 1
+  while time.time() - start_time < warm_up_time:
+    print(fibonacci(i), " ")
+    i = i + 1
+
+  print("Warm up completed")
+  time.sleep(1)
+
+  return
 
 def main():
     # number of iterations of the experiment
@@ -101,4 +125,5 @@ def main():
 
 # Running the factory
 if __name__ == "__main__":
+    warm_up()
     main()
