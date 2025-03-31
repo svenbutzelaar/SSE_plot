@@ -24,11 +24,13 @@ sns.boxplot(
 
 for i, lib in enumerate(order):
     plt.text(i, df[df["library"] == lib]["energy_delay_product"].max() * 1.05,
-             lib, ha="center", fontsize=9, color="black")
+             lib.capitalize(), ha="center", fontsize=9, color="black")
+
 plt.xlabel("Library")
 plt.ylabel("Energy Delay Product")
 plt.title("Energy Delay Product of Plotting Libraries")
 plt.xticks(rotation=15)
 plt.grid(axis="y", linestyle="--", alpha=0.5)
 plt.tight_layout()
+plt.savefig("edp_plot.png", dpi=300)
 plt.show()
