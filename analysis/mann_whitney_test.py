@@ -4,7 +4,7 @@ from itertools import combinations
 
 df = pd.read_csv("no_outliers_results.csv")
 
-metric = "energy_delay_product"
+metric = "delta_package_energy_j"
 
 libraries = df["library"].unique()
 
