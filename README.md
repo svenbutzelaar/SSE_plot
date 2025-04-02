@@ -20,7 +20,9 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-Run the script using:
+At first, the `.env` file should be created and the variables should be set as described in `.env.example`.
+
+Run the script with elevated permissions using:
 
 ```bash
 python main.py
