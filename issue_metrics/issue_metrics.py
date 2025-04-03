@@ -31,10 +31,7 @@ def get_issue_metrics(repo_name):
     open_response_durations = [1] # How long until the first response on open issues
     no_responses_closed = 0 # How many closed issues have no responses
     no_responses_open = 0 # How many open issues have no responses
-    i = 0
     for issue in issues:
-        if i % 100 == 0: print("i: ", i)
-        i += 1
         if issue.closed_at and issue.created_at:
             closure_time = (issue.closed_at - issue.created_at).total_seconds()
 
@@ -53,8 +50,6 @@ def get_issue_metrics(repo_name):
     open_issues = repo.get_issues(state="open")
 
     for issue in open_issues:
-        if i % 100 == 0: print("i: ", i)
-        i += 1
         if issue.pull_request is not None:
             continue
         if issue.created_at:

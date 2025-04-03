@@ -50,3 +50,5 @@ This project is for academic research purposes. Modify and distribute as needed.
 ## Calculating Maintainbility Index
 To calcualte maintainbaility index, first go to the visualization_repos directory and run the `clone_repos.py` file to clone the source code of all the plotting libraries in the visualization_repos directory. The next step is go back to the root directory of the project and run `maintainability.py` to calculate the maintainbility index of each plotting libray.
 
+## Collecting Issue Resolution Metrics
+To collect the Issue Resolution Metrics go to the issue_metrics directory and run the `issue_metrics.py` file. This file will print all metrics to the console, it also collects some metrics that were not used in the final report. The results can also be found in results.txt .
